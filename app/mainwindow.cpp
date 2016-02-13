@@ -478,13 +478,13 @@ bool MainWindow::on_actionExport_to_Arduino_triggered( ) {
   }
   QVector< GraphicElement* > elements = editor->getScene( )->getElements( );
   SimulationController *sc = editor->getSimulationController( );
-  sc->stop( );
   if( elements.isEmpty( ) ) {
     return( false );
   }
   if( !fname.endsWith( ".ino" ) ) {
     fname.append( ".ino" );
   }
+  sc->stop( );
   for( GraphicElement *elm: elements ) {
     elm->setChanged( false );
     elm->setBeingVisited( false );
